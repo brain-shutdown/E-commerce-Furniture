@@ -10,7 +10,10 @@ import { Auth0Provider } from '@auth0/auth0-react';
 
 ReactDOM.render(
 	<ProductsProvider>
-		<App />
+		{/* Filter Provider must be inside Products Provider to access all product data */}
+		<FilterProvider>
+			<App />
+		</FilterProvider>
 	</ProductsProvider>,
 	document.getElementById('root')
 );
