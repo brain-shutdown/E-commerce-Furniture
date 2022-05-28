@@ -12,7 +12,9 @@ ReactDOM.render(
 	<ProductsProvider>
 		{/* Filter Provider must be inside Products Provider to access all product data */}
 		<FilterProvider>
-			<App />
+			<CartProvider>
+				<App />
+			</CartProvider>
 		</FilterProvider>
 	</ProductsProvider>,
 	document.getElementById('root')

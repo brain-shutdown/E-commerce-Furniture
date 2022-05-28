@@ -8,7 +8,12 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
 const SingleProductPage = () => {
-	const { single_product: product, single_product_error: error, single_product_loading: loading, fetchSingleProduct } = useProductsContext();
+	const {
+		single_product: product,
+		single_product_error: error,
+		single_product_loading: loading,
+		fetchSingleProduct,
+	} = useProductsContext();
 
 	const { id } = useParams();
 	let navigate = useNavigate();
@@ -57,7 +62,7 @@ const SingleProductPage = () => {
 							{company}
 						</p>
 						<hr />
-						{stock > 0 && <AddToCart {...product} />}
+						{stock > 0 && <AddToCart product={product} />}
 					</section>
 				</div>
 			</div>
