@@ -6,10 +6,12 @@ import { FaTimes } from 'react-icons/fa';
 import { links } from '../utils/constants';
 import styled from 'styled-components';
 import CartButtons from './CartButtons';
-import { useUserContext } from '../context/user_context';
+import { useAuth0 } from '@auth0/auth0-react';
 
 const Sidebar = () => {
 	const { isSidebarOpen, closeSidebar } = useProductsContext();
+	const { isAuthenticated } = useAuth0();
+
 	return (
 		<SidebarContainer>
 			<aside className={`${isSidebarOpen ? 'sidebar show-sidebar' : 'sidebar'}`}>
@@ -24,13 +26,19 @@ const Sidebar = () => {
 						const { id, text, url } = link;
 						return (
 							<li key={id}>
-								<Link to={url}>{text}</Link>
+								<Link to={url} onClick={() => closeSidebar()}>
+									{text}
+								</Link>
 							</li>
 						);
 					})}
-					<li>
-						<Link to='/checkout'>Checkout</Link>
-					</li>
+					{isAuthenticated && (
+						<li>
+							<Link to='/checkout' onClick={() => closeSidebar()}>
+								Checkout
+							</Link>
+						</li>
+					)}
 				</ul>
 				<CartButtons />
 			</aside>
