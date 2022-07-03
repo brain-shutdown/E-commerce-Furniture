@@ -1,7 +1,7 @@
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-	<a href="https://github.com/brain-shutdown/Redux-tutorial">
+	<a href="https://github.com/brain-shutdown/E-commerce-Furniture">
 		<img src="./src/assets/logo.svg" alt="Logo" width="200">
 	</a>
 	<p align="center">
